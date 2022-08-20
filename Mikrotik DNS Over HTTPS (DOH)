@@ -1,1 +1,14 @@
+Script Mikrotik DOH :
 
+1. Import Certificate
+	/tool fetch url=https://curl.se/ca/cacert.pem
+	
+2. Ekstrak Certificate :
+	/certificate import file-name=cacert.pem passphrase=""
+
+3. Set DNS :
+	a. Cloudflare :
+		/ip dns set allow-remote-requests=yes cache-size=8192KiB max-concurrent-queries=1000 max-concurrent-tcp-sessions=2000 servers=1.1.1.1,1.0.0.1 use-doh-server=https://cloudflare-dns.com/dns-query verify-doh-cert=yes
+	b. Google
+	
+	c. 
